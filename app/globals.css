@@ -26,6 +26,11 @@ a {
   text-decoration: none;
 }
 
+/* 상단 헤더의 상담하기/Consulting Request 버튼은 사용하지 않습니다. */
+header a[href^='mailto:'] {
+  display: none !important;
+}
+
 .brand-wave {
   position: absolute;
   right: 0;
