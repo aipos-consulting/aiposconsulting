@@ -1,12 +1,12 @@
 import {
   ArrowRight,
   BarChart3,
-  Bot,
   BriefcaseBusiness,
   CheckCircle2,
   ClipboardCheck,
   Code2,
   Gauge,
+  Globe2,
   Lightbulb,
   Mail,
   Menu,
@@ -18,41 +18,41 @@ import {
 
 const services = [
   {
-    title: 'AI·AX Strategy Consulting',
-    description: '비즈니스 목표에 맞는 AI·AX 전략과 실행 로드맵을 설계합니다.',
+    title: 'AI·AX 전략 수립',
+    description: '비즈니스 목표에 맞는 AI 전략과 실행 로드맵을 함께 설계합니다.',
     icon: BarChart3,
   },
   {
-    title: 'AI Project Advisory',
+    title: 'AI 프로젝트 자문',
     description: '프로젝트 기획, 요구사항, 아키텍처, 개발사 선정과 리스크 관리를 지원합니다.',
     icon: BriefcaseBusiness,
   },
   {
-    title: 'MVP Development',
-    description: '정부지원사업·창업지원사업의 사업계획을 실제 작동하는 MVP로 구현합니다.',
+    title: '정부지원사업 MVP 개발',
+    description: '사업계획서를 실제 작동하는 검증 가능한 MVP로 구현합니다.',
     icon: Code2,
     featured: true,
   },
   {
-    title: 'AI Process Innovation',
-    description: '업무 프로세스를 AI Automation과 AI Agent 중심으로 혁신합니다.',
+    title: '업무 자동화',
+    description: '반복 업무를 자동화하고 프로세스를 최적화해 효율을 높입니다.',
     icon: Settings2,
   },
   {
-    title: 'AI Business Planning',
+    title: 'AI 사업기획',
     description: '사업계획서, 제안서, 수행계획서와 경영진 보고자료를 구조화합니다.',
     icon: ClipboardCheck,
   },
 ]
 
 const methodology = [
-  ['Goal', '목표 설정', Target],
-  ['Diagnose', '현황 진단', Search],
+  ['목표', '목표 설정', Target],
+  ['진단', '현황 진단', Search],
   ['GAP', '갭 분석', Gauge],
-  ['Design', '전략 설계', Lightbulb],
-  ['Prioritize', '우선순위', ClipboardCheck],
+  ['설계', '전략 설계', Lightbulb],
+  ['우선순위', '실행 순서', ClipboardCheck],
   ['MVP', '최소 실행 제품', Code2],
-  ['Validate', '검증', CheckCircle2],
+  ['검증', '성과 검증', CheckCircle2],
   ['KPI', '성과 측정', BarChart3],
 ] as const
 
@@ -60,70 +60,74 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white text-navy">
       <header className="sticky top-0 z-50 border-b border-border/80 bg-white/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4 lg:px-8">
           <a href="#home" className="flex items-center gap-3 font-semibold tracking-tight">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-navy text-lg font-bold text-white">
-              AI
+            <div className="relative h-11 w-11">
+              <div className="absolute left-1 top-1 h-7 w-7 rotate-45 border-l-[7px] border-t-[7px] border-navy" />
+              <div className="absolute bottom-1 left-5 h-5 w-5 rotate-45 border-b-[6px] border-r-[6px] border-teal" />
+              <span className="absolute right-0 top-0 h-2.5 w-2.5 rounded-full bg-teal" />
             </div>
             <div>
-              <div className="text-lg leading-none">AIPOS</div>
-              <div className="mt-1 text-xs tracking-[0.22em] text-muted">CONSULTING</div>
+              <div className="text-xl font-extrabold leading-none">AIPOS</div>
+              <div className="mt-1 text-xs font-semibold text-navy">Consulting</div>
             </div>
           </a>
-          <nav className="hidden items-center gap-8 text-sm font-semibold md:flex">
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#mvp" className="text-teal">4-Week MVP</a>
+
+          <nav className="hidden items-center gap-7 text-sm font-semibold md:flex">
+            <a href="#home">홈</a>
+            <a href="#services">서비스</a>
+            <a href="#mvp" className="text-teal">4주 MVP</a>
             <a href="#aipos">AIPOS</a>
-            <a href="#about">About</a>
+            <a href="#about">소개</a>
+            <a href="mailto:herriskim@gmail.com">문의</a>
           </nav>
-          <a href="mailto:herriskim@gmail.com" className="hidden rounded-xl bg-navy px-5 py-3 text-sm font-semibold text-white md:inline-flex">
-            Consulting Request
-          </a>
+
+          <div className="hidden items-center gap-2 rounded-xl border border-border bg-white px-3 py-2 text-xs font-semibold text-muted lg:flex">
+            <Globe2 size={16} className="text-teal" />
+            <span>한국어</span><span>·</span><span>English</span><span>·</span><span>日本語</span><span>·</span><span>中文</span>
+          </div>
+
           <button className="md:hidden" aria-label="메뉴 열기"><Menu /></button>
         </div>
       </header>
 
-      <section id="home" className="relative overflow-hidden">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-28">
+      <section id="home" className="relative overflow-hidden bg-gradient-to-br from-white via-white to-surface">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-28">
           <div className="relative z-10">
-            <p className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-teal">AIPOS Consulting</p>
+            <p className="mb-5 text-sm font-bold tracking-[0.18em] text-teal">AIPOS CONSULTING</p>
             <h1 className="max-w-3xl text-5xl font-bold leading-tight tracking-tight md:text-6xl">
-              AI Strategy to Execution
+              AI 전략에서 실행까지,<br />실질적인 비즈니스 성과
             </h1>
-            <p className="mt-6 text-2xl font-bold text-teal md:text-3xl">AI 전략을 실제 비즈니스 성과로 연결합니다.</p>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
-              스타트업과 중소기업이 AI 전략을 실제 실행과 성과로 전환하도록 지원합니다. 전략, 프로세스, MVP, 실행 지원을 하나의 흐름으로 연결합니다.
+              AIPOS Consulting은 스타트업과 중소기업이 AI 전략을 실제 실행과 성과로 전환할 수 있도록 지원합니다.
             </p>
+            <div className="mt-5 inline-flex flex-wrap items-center gap-2 rounded-full bg-surface px-4 py-2 text-sm font-semibold text-muted">
+              <Globe2 size={16} className="text-teal" />
+              다국어 지원: 한국어 · English · 日本語 · 中文
+            </div>
             <div className="mt-8 flex flex-wrap gap-4">
               <a href="mailto:herriskim@gmail.com" className="inline-flex items-center gap-2 rounded-xl bg-navy px-6 py-3.5 font-semibold text-white">
-                AI Consulting Request <ArrowRight size={18} />
-              </a>
-              <a href="#services" className="inline-flex items-center gap-2 rounded-xl border border-navy px-6 py-3.5 font-semibold">
-                Our Services <ArrowRight size={18} />
+                이메일 문의 <ArrowRight size={18} />
               </a>
             </div>
           </div>
 
-          <div className="relative min-h-[360px] rounded-[28px] border border-border bg-surface p-8 shadow-card">
-            <div className="absolute inset-8 grid grid-cols-2 gap-4">
+          <div className="relative min-h-[360px] rounded-[28px] border border-border bg-white/80 p-8 shadow-card">
+            <div className="grid h-full grid-cols-2 gap-4">
               {[
-                ['STRATEGY', Target],
-                ['DATA', BarChart3],
-                ['PROCESS', Settings2],
-                ['RESULTS', Gauge],
+                ['분석', BarChart3],
+                ['자동화', Settings2],
+                ['데이터 인사이트', Network],
+                ['성장', Gauge],
               ].map(([label, Icon]) => {
                 const I = Icon as typeof Target
                 return (
-                  <div key={label as string} className="flex flex-col justify-between rounded-2xl border border-border bg-white p-5">
+                  <div key={label as string} className="flex min-h-[130px] flex-col justify-between rounded-2xl border border-border bg-white p-5 shadow-sm">
                     <I className="text-teal" />
-                    <span className="text-sm font-bold tracking-[0.16em]">{label as string}</span>
+                    <span className="text-sm font-bold">{label as string}</span>
                   </div>
                 )
               })}
-            </div>
-            <div className="absolute left-1/2 top-1/2 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-3xl bg-navy text-4xl font-black text-white shadow-card">
-              AI
             </div>
           </div>
         </div>
@@ -138,16 +142,9 @@ export default function Home() {
             <p className="mt-4 max-w-3xl leading-7 text-white/75">
               사업계획서 분석부터 요구사항 정의, UX/UI, AI·Web 개발, 테스트와 Demo까지 핵심 기능 중심으로 빠르게 연결합니다.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3 text-sm font-semibold text-white/85">
-              {['사업계획서', '요구사항', 'UX/UI', 'AI·Web 개발', 'MVP', 'Demo'].map((item, i) => (
-                <span key={item} className="flex items-center gap-3">
-                  {i > 0 && <ArrowRight size={15} className="text-teal" />}{item}
-                </span>
-              ))}
-            </div>
           </div>
-          <a href="mailto:herriskim@gmail.com?subject=4-Week MVP 상담" className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-4 font-bold text-navy">
-            4-Week MVP 상담 <ArrowRight size={18} />
+          <a href="mailto:herriskim@gmail.com?subject=4-Week MVP 문의" className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-4 font-bold text-navy">
+            이메일 문의 <ArrowRight size={18} />
           </a>
         </div>
       </section>
@@ -155,7 +152,7 @@ export default function Home() {
       <section id="aipos" className="bg-surface py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-teal">AIPOS Methodology</p>
+            <p className="text-sm font-bold tracking-[0.2em] text-teal">AIPOS 방법론</p>
             <h2 className="mt-3 text-3xl font-bold">AI Process Operating Standard</h2>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-8">
@@ -174,8 +171,8 @@ export default function Home() {
       <section id="services" className="py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-teal">Core Services</p>
-            <h2 className="mt-3 text-3xl font-bold">Strategy, Advisory, MVP, Process, Planning</h2>
+            <p className="text-sm font-bold tracking-[0.2em] text-teal">핵심 서비스</p>
+            <h2 className="mt-3 text-3xl font-bold">전략에서 실행까지 연결합니다</h2>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
             {services.map(({ title, description, icon: Icon, featured }) => (
@@ -183,7 +180,6 @@ export default function Home() {
                 {featured && <span className="mb-5 inline-flex rounded-full bg-teal px-3 py-1 text-xs font-bold text-white">4-WEEK MVP</span>}
                 <Icon className="text-teal" />
                 <h3 className="mt-5 text-lg font-bold">{title}</h3>
-                {featured && <p className="mt-2 text-sm font-bold text-teal">정부지원사업 MVP 개발 전문</p>}
                 <p className="mt-3 text-sm leading-6 text-muted">{description}</p>
               </article>
             ))}
@@ -194,7 +190,7 @@ export default function Home() {
       <section id="about" className="bg-surface py-20">
         <div className="mx-auto grid max-w-7xl gap-6 px-6 lg:grid-cols-2 lg:px-8">
           <article className="rounded-2xl border border-border bg-white p-8 shadow-card">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-teal">Principal Consultant</p>
+            <p className="text-sm font-bold tracking-[0.18em] text-teal">대표컨설턴트</p>
             <h2 className="mt-3 text-3xl font-bold">Harris Kim</h2>
             <p className="mt-1 font-semibold text-teal">Principal Consultant · MBA</p>
             <div className="my-6 h-px bg-border" />
@@ -205,13 +201,13 @@ export default function Home() {
             </ul>
           </article>
           <article className="rounded-2xl border border-border bg-white p-8 shadow-card">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-teal">Why AIPOS Consulting</p>
+            <p className="text-sm font-bold tracking-[0.18em] text-teal">AIPOS Consulting의 차별점</p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               {[
-                ['Business First', '기술보다 비즈니스 목표와 성과에서 출발합니다.', Target],
-                ['Strategy to Execution', '전략 수립에서 실제 실행까지 연결합니다.', Network],
-                ['Practical Approach', '현실적으로 실행 가능한 해법을 설계합니다.', Settings2],
-                ['AI Powered Consulting', 'AI로 조사·분석·설계의 생산성을 높입니다.', Bot],
+                ['비즈니스 우선', '기술보다 비즈니스 목표와 성과에서 출발합니다.', Target],
+                ['전략에서 실행까지', '전략 수립에서 실제 실행까지 연결합니다.', Network],
+                ['실행 가능한 접근', '현실적으로 실행 가능한 해법을 설계합니다.', Settings2],
+                ['AI 활용 컨설팅', 'AI로 조사·분석·설계의 생산성을 높입니다.', BarChart3],
               ].map(([title, desc, Icon]) => {
                 const I = Icon as typeof Target
                 return <div key={title as string} className="rounded-xl bg-surface p-5"><I className="text-teal" /><h3 className="mt-3 font-bold">{title as string}</h3><p className="mt-2 text-sm leading-6 text-muted">{desc as string}</p></div>
@@ -225,10 +221,10 @@ export default function Home() {
         <div className="brand-wave" />
         <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-6 px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div>
-            <h2 className="text-3xl font-bold">Ready to Start Your AI Transformation?</h2>
-            <p className="mt-3 text-white/75">AI 전략부터 4-Week MVP 실행까지 AIPOS Consulting과 시작하세요.</p>
+            <h2 className="text-3xl font-bold">AI 전략을 실행으로 연결할 준비가 되셨나요?</h2>
+            <p className="mt-3 text-white/75">AI 전략부터 4-Week MVP 실행까지 AIPOS Consulting이 함께합니다.</p>
           </div>
-          <a href="mailto:herriskim@gmail.com" className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-4 font-bold text-navy">AI Consulting Request <ArrowRight size={18} /></a>
+          <a href="mailto:herriskim@gmail.com" className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-4 font-bold text-navy">이메일 문의 <ArrowRight size={18} /></a>
         </div>
       </section>
 
