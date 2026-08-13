@@ -6,7 +6,6 @@ import {
   ClipboardCheck,
   Code2,
   Gauge,
-  Globe2,
   Lightbulb,
   Mail,
   Menu,
@@ -82,11 +81,6 @@ export default function Home() {
             <a href="mailto:herriskim@gmail.com">문의</a>
           </nav>
 
-          <div className="hidden items-center gap-2 rounded-xl border border-border bg-white px-3 py-2 text-xs font-semibold text-muted lg:flex">
-            <Globe2 size={16} className="text-teal" />
-            <span>한국어</span><span>·</span><span>English</span><span>·</span><span>日本語</span><span>·</span><span>中文</span>
-          </div>
-
           <button className="md:hidden" aria-label="메뉴 열기"><Menu /></button>
         </div>
       </header>
@@ -101,10 +95,6 @@ export default function Home() {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
               AIPOS Consulting은 스타트업과 중소기업이 AI 전략을 실제 실행과 성과로 전환할 수 있도록 지원합니다.
             </p>
-            <div className="mt-5 inline-flex flex-wrap items-center gap-2 rounded-full bg-surface px-4 py-2 text-sm font-semibold text-muted">
-              <Globe2 size={16} className="text-teal" />
-              다국어 지원: 한국어 · English · 日本語 · 中文
-            </div>
             <div className="mt-8 flex flex-wrap gap-4">
               <a href="mailto:herriskim@gmail.com" className="inline-flex items-center gap-2 rounded-xl bg-navy px-6 py-3.5 font-semibold text-white">
                 이메일 문의 <ArrowRight size={18} />
