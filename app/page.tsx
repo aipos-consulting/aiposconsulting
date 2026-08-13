@@ -162,9 +162,15 @@ export default function Home() {
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
             {services.map(({ title, description, icon: Icon, featured }) => (
-              <article key={title} className={`rounded-2xl border p-6 shadow-card ${featured ? 'border-teal bg-teal/[0.04]' : 'border-border bg-white'}`}>
-                {featured && <span className="inline-flex rounded-full bg-teal px-3 py-1 text-xs font-bold text-white">4-WEEK MVP</span>}
-                {!featured && <Icon className="text-teal" />}
+              <article key={title} className={`relative rounded-2xl border p-6 shadow-card ${featured ? 'border-teal bg-teal/[0.04]' : 'border-border bg-white'}`}>
+                {featured ? (
+                  <>
+                    <span className="absolute left-6 top-6 inline-flex rounded-full bg-teal px-3 py-1 text-xs font-bold text-white">4-WEEK MVP</span>
+                    <div className="h-6" aria-hidden="true" />
+                  </>
+                ) : (
+                  <Icon className="text-teal" />
+                )}
                 <h3 className="mt-5 text-lg font-bold">{title}</h3>
                 <p className="mt-3 text-sm leading-6 text-muted">{description}</p>
               </article>
