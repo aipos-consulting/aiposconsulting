@@ -8,7 +8,6 @@ import {
   Gauge,
   Lightbulb,
   Mail,
-  Menu,
   Network,
   Search,
   Settings2,
@@ -76,8 +75,6 @@ export default function Home() {
             <a href="#about">소개</a>
             <a href="mailto:herriskim@gmail.com">문의</a>
           </nav>
-
-          <button className="md:hidden" aria-label="메뉴 열기"><Menu /></button>
         </div>
       </header>
 
