@@ -60,16 +60,12 @@ export default function Home() {
     <main className="min-h-screen bg-white text-navy">
       <header className="sticky top-0 z-50 border-b border-border/80 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4 lg:px-8">
-          <a href="#home" className="flex items-center gap-3 font-semibold tracking-tight">
-            <div className="relative h-11 w-11">
-              <div className="absolute left-1 top-1 h-7 w-7 rotate-45 border-l-[7px] border-t-[7px] border-navy" />
-              <div className="absolute bottom-1 left-5 h-5 w-5 rotate-45 border-b-[6px] border-r-[6px] border-teal" />
-              <span className="absolute right-0 top-0 h-2.5 w-2.5 rounded-full bg-teal" />
-            </div>
-            <div>
-              <div className="text-xl font-extrabold leading-none">AIPOS</div>
-              <div className="mt-1 text-xs font-semibold text-navy">Consulting</div>
-            </div>
+          <a href="#home" className="flex items-center">
+            <img
+              src="/aipos-logo-official.png"
+              alt="AIPOS Consulting"
+              className="h-14 w-auto object-contain"
+            />
           </a>
 
           <nav className="hidden items-center gap-7 text-sm font-semibold md:flex">
