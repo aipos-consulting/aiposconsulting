@@ -236,7 +236,10 @@ export default function Home() {
             <span>010-3277-5408</span>
             <span>www.aiposconsulting.com</span>
           </div>
-          <div className="text-white/55">© 2026 AIPOS Consulting</div>
+          <div className="text-white/55">
+            <div>© 2026 AIPOS Consulting</div>
+            <div className="mt-1">Website created on August 18, 2026</div>
+          </div>
         </div>
       </footer>
     </main>
