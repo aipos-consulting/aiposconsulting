@@ -58,12 +58,12 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white text-navy">
       <header className="sticky top-0 z-50 border-b border-border/80 bg-white/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-start gap-6 px-6 py-4 md:justify-between lg:px-8">
           <a href="#home" className="flex items-center">
             <img
               src="/aipos-logo-official.png"
               alt="AIPOS Consulting"
-              className="h-14 w-auto object-contain"
+              className="h-10 w-auto object-contain md:h-14"
             />
           </a>
 
