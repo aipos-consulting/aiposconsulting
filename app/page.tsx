@@ -8,10 +8,14 @@ import {
   CheckCircle2,
   ClipboardCheck,
   Code2,
+  Database,
   Gauge,
+  GitBranch,
   Lightbulb,
   Mail,
+  MessageSquareText,
   Network,
+  Rocket,
   Search,
   Settings2,
   Target,
@@ -27,6 +31,17 @@ const copy = {
     email: '이메일 문의', cards: ['분석', '자동화', '데이터 인사이트', '성장'],
     mvpBadge: '정부지원사업 MVP 개발 전문', mvpLead: '사업계획서에서 실제 작동하는 MVP까지, 4주.',
     mvpDesc: '사업계획서 분석부터 요구사항 정의, UX/UI, AI·Web 개발, 테스트와 Demo까지 핵심 기능 중심으로 빠르게 연결합니다.',
+    stackLabel: 'AI-Native Full-Stack MVP',
+    stackTitle: '요구사항에서 배포까지 하나의 AI 개발 흐름으로 연결합니다',
+    stackDesc: '고객 요구사항을 ChatGPT로 구조화하고, Codex로 소스 코드를 구현하며, Supabase에 데이터베이스를 구성합니다. 이후 GitHub에서 형상과 변경 이력을 관리하고 Vercel을 통해 실제 사용 가능한 MVP로 배포합니다.',
+    stackSteps: [
+      ['요구사항 구조화', '고객 요구사항을 ChatGPT에 등록해 기능, 화면, 데이터, 우선순위를 실행 가능한 요구사항으로 정리합니다.'],
+      ['소스 코드 생성', '정의된 요구사항을 바탕으로 Codex에서 프론트엔드·백엔드 코드를 생성하고 반복적으로 수정합니다.'],
+      ['DB·API 구성', 'Supabase에 테이블, 관계, 인증, 저장소와 API 연계 구조를 구성해 서비스 데이터를 연결합니다.'],
+      ['소스 형상관리', 'GitHub에 소스 코드를 등록하고 변경 이력, 버전, 협업 기준을 관리해 개발 자산을 체계화합니다.'],
+      ['실서비스 배포', 'Vercel에 연결해 빌드·배포하고 도메인과 HTTPS를 적용하여 고객이 바로 테스트할 수 있는 MVP를 제공합니다.'],
+    ],
+    stackOutputs: ['요구사항 정의서 · 화면·기능 목록', '동작 가능한 Web/App 소스', 'DB Schema · Auth · API', 'Repository · Version History', 'Production URL · Domain · HTTPS'],
     methodLabel: 'AIPOS 방법론', servicesLabel: '핵심 서비스', servicesTitle: '전략에서 실행까지 연결합니다',
     consultant: '대표컨설턴트', achievements: '주요 실적', differentiator: 'AIPOS Consulting의 차별점',
     ctaTitle: 'AI 전략을 실행으로 연결할 준비가 되셨나요?', ctaDesc: 'AI 전략부터 4-Week MVP 실행까지 AIPOS Consulting이 함께합니다.',
@@ -52,6 +67,17 @@ const copy = {
     email: 'Email Inquiry', cards: ['Analysis', 'Automation', 'Data Insight', 'Growth'],
     mvpBadge: 'Government Support Program MVP Specialist', mvpLead: 'From business plan to working MVP in 4 weeks.',
     mvpDesc: 'We connect business-plan analysis, requirements, UX/UI, AI and web development, testing, and demo around the most critical functions.',
+    stackLabel: 'AI-Native Full-Stack MVP',
+    stackTitle: 'One AI development flow from requirements to production',
+    stackDesc: 'We structure client requirements with ChatGPT, implement source code with Codex, build the data layer in Supabase, manage versions in GitHub, and deploy a working MVP through Vercel.',
+    stackSteps: [
+      ['Structure Requirements', 'Turn client needs into executable features, screens, data requirements, and priorities with ChatGPT.'],
+      ['Generate Source Code', 'Use Codex to create and iteratively refine frontend and backend code from the defined requirements.'],
+      ['Build DB & APIs', 'Configure Supabase tables, relations, authentication, storage, and API integrations for the service data layer.'],
+      ['Manage Source', 'Register source code in GitHub and manage changes, versions, and collaboration standards as durable development assets.'],
+      ['Deploy Production', 'Build and deploy with Vercel, connect domains and HTTPS, and provide an MVP that clients can immediately test.'],
+    ],
+    stackOutputs: ['Requirements · Screen & Feature List', 'Working Web/App Source', 'DB Schema · Auth · API', 'Repository · Version History', 'Production URL · Domain · HTTPS'],
     methodLabel: 'AIPOS Methodology', servicesLabel: 'Core Services', servicesTitle: 'Connecting Strategy to Execution',
     consultant: 'Principal Consultant', achievements: 'Key Experience', differentiator: 'Why AIPOS Consulting',
     ctaTitle: 'Ready to turn AI strategy into execution?', ctaDesc: 'AIPOS Consulting supports you from AI strategy through 4-Week MVP execution.',
@@ -77,6 +103,17 @@ const copy = {
     email: 'メール問い合わせ', cards: ['分析', '自動化', 'データインサイト', '成長'],
     mvpBadge: '政府支援事業MVP開発専門', mvpLead: '事業計画書から実際に動くMVPまで、4週間。',
     mvpDesc: '事業計画書分析、要件定義、UX/UI、AI・Web開発、テスト、デモまで、重要機能を中心に迅速につなげます。',
+    stackLabel: 'AI-Native Full-Stack MVP',
+    stackTitle: '要件から本番公開までを一つのAI開発フローでつなぎます',
+    stackDesc: '顧客要件をChatGPTで構造化し、Codexでソースコードを実装、Supabaseでデータベースを構築します。GitHubでバージョンを管理し、Vercelで実際に利用できるMVPを公開します。',
+    stackSteps: [
+      ['要件の構造化', '顧客要件をChatGPTで機能、画面、データ、優先順位に整理し、実行可能な要件に変換します。'],
+      ['ソースコード生成', '定義した要件をもとにCodexでフロントエンド・バックエンドコードを生成し、反復改善します。'],
+      ['DB・API構築', 'Supabaseにテーブル、リレーション、認証、ストレージ、API連携を構成します。'],
+      ['ソース管理', 'GitHubでソースコード、変更履歴、バージョン、協業基準を管理します。'],
+      ['本番デプロイ', 'Vercelでビルド・デプロイし、ドメインとHTTPSを適用してテスト可能なMVPを提供します。'],
+    ],
+    stackOutputs: ['要件定義 · 画面・機能一覧', '動作するWeb/Appソース', 'DB Schema · Auth · API', 'Repository · Version History', 'Production URL · Domain · HTTPS'],
     methodLabel: 'AIPOS方法論', servicesLabel: '主要サービス', servicesTitle: '戦略から実行までつなぎます',
     consultant: '代表コンサルタント', achievements: '主な実績', differentiator: 'AIPOS Consultingの強み',
     ctaTitle: 'AI戦略を実行につなげる準備はできていますか？', ctaDesc: 'AI戦略から4-Week MVPの実行までAIPOS Consultingが支援します。',
@@ -102,6 +139,17 @@ const copy = {
     email: '邮件咨询', cards: ['分析', '自动化', '数据洞察', '增长'],
     mvpBadge: '政府扶持项目MVP开发专家', mvpLead: '从商业计划书到可运行的MVP，4周完成。',
     mvpDesc: '从商业计划分析、需求定义、UX/UI、AI与Web开发，到测试和演示，围绕核心功能快速推进。',
+    stackLabel: 'AI-Native Full-Stack MVP',
+    stackTitle: '从需求到上线，以一条AI开发流程贯通',
+    stackDesc: '使用ChatGPT结构化客户需求，通过Codex实现源代码，在Supabase构建数据库，在GitHub管理版本，并通过Vercel部署可实际使用的MVP。',
+    stackSteps: [
+      ['需求结构化', '使用ChatGPT将客户需求整理为可执行的功能、页面、数据和优先级。'],
+      ['生成源代码', '根据定义好的需求，使用Codex生成并迭代优化前后端代码。'],
+      ['构建DB与API', '在Supabase配置数据表、关系、认证、存储和API集成。'],
+      ['源码版本管理', '在GitHub登记源代码并管理变更记录、版本和协作标准。'],
+      ['生产部署', '通过Vercel构建部署，连接域名与HTTPS，交付可立即测试的MVP。'],
+    ],
+    stackOutputs: ['需求定义 · 页面与功能清单', '可运行Web/App源码', 'DB Schema · Auth · API', 'Repository · Version History', 'Production URL · Domain · HTTPS'],
     methodLabel: 'AIPOS方法论', servicesLabel: '核心服务', servicesTitle: '连接战略与执行',
     consultant: '首席顾问', achievements: '主要业绩', differentiator: 'AIPOS Consulting的差异化优势',
     ctaTitle: '准备好把AI战略转化为执行了吗？', ctaDesc: 'AIPOS Consulting从AI战略到4-Week MVP执行全程支持。',
@@ -125,6 +173,8 @@ const copy = {
 const serviceIcons = [BarChart3, BriefcaseBusiness, Code2, Settings2, ClipboardCheck]
 const methodIcons = [Target, Search, Gauge, Lightbulb, ClipboardCheck, Code2, CheckCircle2, BarChart3]
 const diffIcons = [Target, Network, Settings2, BarChart3]
+const stackIcons = [MessageSquareText, Code2, Database, GitBranch, Rocket]
+const stackBrands = ['ChatGPT', 'Codex', 'Supabase', 'GitHub', 'Vercel']
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>('ko')
@@ -176,6 +226,50 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-8 px-6 py-12 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
           <div><span className="inline-flex rounded-full bg-teal px-4 py-2 text-sm font-bold">{t.mvpBadge}</span><h2 className="mt-5 text-3xl font-bold md:text-4xl">4-Week MVP</h2><p className="mt-3 text-xl font-semibold text-white/90 md:text-2xl">{t.mvpLead}</p><p className="mt-4 max-w-3xl leading-7 text-white/75">{t.mvpDesc}</p></div>
           <a href="mailto:herriskim@gmail.com?subject=4-Week MVP" className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-4 font-bold text-navy">{t.email} <ArrowRight size={18} /></a>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden bg-white py-20 md:py-24">
+        <div className="absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-teal/5 blur-3xl" aria-hidden="true" />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="text-sm font-bold tracking-[0.2em] text-teal">{t.stackLabel}</p>
+            <h2 className="mt-4 text-2xl font-bold leading-tight md:text-4xl">{t.stackTitle}</h2>
+            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-muted md:text-lg">{t.stackDesc}</p>
+          </div>
+
+          <div className="mt-12 grid gap-4 md:grid-cols-5">
+            {t.stackSteps.map(([title], index) => {
+              const Icon = stackIcons[index]
+              return (
+                <div key={stackBrands[index]} className="relative">
+                  <div className="flex h-full min-h-[190px] flex-col items-center justify-center rounded-2xl border border-border bg-white p-5 text-center shadow-card">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-navy text-white"><Icon size={26} /></div>
+                    <div className="mt-4 text-xs font-bold tracking-[0.12em] text-teal">STEP {index + 1}</div>
+                    <div className="mt-1 text-lg font-bold">{stackBrands[index]}</div>
+                    <div className="mt-2 text-sm font-semibold text-muted">{title}</div>
+                  </div>
+                  {index < t.stackSteps.length - 1 && <div className="absolute -right-4 top-1/2 z-10 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-white text-teal shadow-sm md:flex"><ArrowRight size={16} /></div>}
+                </div>
+              )
+            })}
+          </div>
+
+          <div className="mt-14 space-y-5">
+            {t.stackSteps.map(([title, description], index) => {
+              const Icon = stackIcons[index]
+              return (
+                <article key={title} className="grid gap-6 rounded-3xl border border-border bg-surface/60 p-6 shadow-sm md:grid-cols-[180px_1fr_280px] md:items-center md:p-8">
+                  <div className="flex items-center gap-4 md:block">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-navy text-white md:h-14 md:w-14"><Icon size={24} /></div>
+                    <div className="md:mt-4"><div className="text-xs font-bold tracking-[0.14em] text-teal">STEP {index + 1}</div><h3 className="mt-1 text-xl font-bold">{stackBrands[index]}</h3></div>
+                  </div>
+                  <div><h4 className="text-lg font-bold md:text-xl">{title}</h4><p className="mt-3 leading-7 text-muted">{description}</p></div>
+                  <div className="rounded-2xl border border-border bg-white p-5"><div className="text-xs font-bold tracking-[0.12em] text-teal">OUTPUT</div><div className="mt-2 text-sm font-semibold leading-6 text-navy">{t.stackOutputs[index]}</div></div>
+                </article>
+              )
+            })}
+          </div>
         </div>
       </section>
 
