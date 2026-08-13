@@ -180,8 +180,10 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-6 px-6 lg:grid-cols-2 lg:px-8">
           <article className="rounded-2xl border border-border bg-white p-8 shadow-card">
             <p className="text-sm font-bold tracking-[0.18em] text-teal">대표컨설턴트</p>
-            <h2 className="mt-3 text-2xl font-bold md:text-3xl">김흥식(Harris Kim)</h2>
-            <p className="mt-1 font-semibold text-teal">Principal Consultant · MBA</p>
+            <h2 className="mt-3 text-2xl font-bold md:text-3xl">김흥식</h2>
+            <p className="mt-1 text-xl font-semibold text-navy">Harris Kim</p>
+            <p className="mt-3 font-semibold text-teal">Principal Consultant</p>
+            <p className="mt-1 font-semibold text-teal">MBA</p>
             <div className="my-6 h-px bg-border" />
             <h3 className="font-bold">주요 실적</h3>
             <ul className="mt-4 space-y-3 text-muted">
