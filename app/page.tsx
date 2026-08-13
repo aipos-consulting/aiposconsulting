@@ -178,7 +178,7 @@ export default function Home() {
             {services.map(({ title, description, icon: Icon, featured }) => (
               <article key={title} className={`rounded-2xl border p-6 shadow-card ${featured ? 'border-teal bg-teal/[0.04]' : 'border-border bg-white'}`}>
                 {featured && <span className="mb-5 inline-flex rounded-full bg-teal px-3 py-1 text-xs font-bold text-white">4-WEEK MVP</span>}
-                <Icon className="text-teal" />
+                {!featured && <Icon className="text-teal" />}
                 <h3 className="mt-5 text-lg font-bold">{title}</h3>
                 <p className="mt-3 text-sm leading-6 text-muted">{description}</p>
               </article>
@@ -191,7 +191,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-6 px-6 lg:grid-cols-2 lg:px-8">
           <article className="rounded-2xl border border-border bg-white p-8 shadow-card">
             <p className="text-sm font-bold tracking-[0.18em] text-teal">대표컨설턴트</p>
-            <h2 className="mt-3 text-3xl font-bold">Harris Kim</h2>
+            <h2 className="mt-3 text-3xl font-bold">김흥식(Harris Kim)</h2>
             <p className="mt-1 font-semibold text-teal">Principal Consultant · MBA</p>
             <div className="my-6 h-px bg-border" />
             <h3 className="font-bold">주요 실적</h3>
