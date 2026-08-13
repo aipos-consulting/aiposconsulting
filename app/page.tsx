@@ -79,7 +79,7 @@ export default function Home() {
       </header>
 
       <section id="home" className="relative overflow-hidden bg-gradient-to-br from-white via-white to-surface">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 pt-10 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-28">
           <div className="relative z-10">
             <p className="mb-5 text-sm font-bold tracking-[0.18em] text-teal">AIPOS CONSULTING</p>
             <h1 className="max-w-3xl text-5xl font-bold leading-tight tracking-tight md:text-6xl">
