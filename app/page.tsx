@@ -56,7 +56,7 @@ const methodology = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-navy">
+    <main className="min-h-screen bg-white text-navy [word-break:keep-all]">
       <header className="sticky top-0 z-50 border-b border-border/80 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-start gap-6 px-6 py-4 md:justify-between lg:px-8">
           <a href="#home" className="flex items-center">
@@ -82,7 +82,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 pt-10 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-28">
           <div className="relative z-10">
             <p className="mb-5 text-sm font-bold tracking-[0.18em] text-teal">AIPOS CONSULTING</p>
-            <h1 className="max-w-3xl text-5xl font-bold leading-tight tracking-tight md:text-6xl">
+            <h1 className="max-w-3xl text-3xl font-bold leading-[1.25] tracking-tight sm:text-4xl md:text-6xl">
               AI 전략에서 실행까지,<br />실질적인 비즈니스 성과
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
@@ -120,8 +120,8 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-8 px-6 py-12 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
           <div>
             <span className="inline-flex rounded-full bg-teal px-4 py-2 text-sm font-bold">정부지원사업 MVP 개발 전문</span>
-            <h2 className="mt-5 text-4xl font-bold">4-Week MVP</h2>
-            <p className="mt-3 text-2xl font-semibold text-white/90">사업계획서에서 실제 작동하는 MVP까지, 4주.</p>
+            <h2 className="mt-5 text-3xl font-bold md:text-4xl">4-Week MVP</h2>
+            <p className="mt-3 text-xl font-semibold text-white/90 md:text-2xl">사업계획서에서 실제 작동하는 MVP까지, 4주.</p>
             <p className="mt-4 max-w-3xl leading-7 text-white/75">
               사업계획서 분석부터 요구사항 정의, UX/UI, AI·Web 개발, 테스트와 Demo까지 핵심 기능 중심으로 빠르게 연결합니다.
             </p>
@@ -136,7 +136,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center">
             <p className="text-sm font-bold tracking-[0.2em] text-teal">AIPOS 방법론</p>
-            <h2 className="mt-3 text-3xl font-bold">AI Process Operating Standard</h2>
+            <h2 className="mt-3 text-2xl font-bold md:text-3xl">AI Process Operating Standard</h2>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-8">
             {methodology.map(([title, sub, Icon], index) => (
@@ -155,7 +155,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center">
             <p className="text-sm font-bold tracking-[0.2em] text-teal">핵심 서비스</p>
-            <h2 className="mt-3 text-3xl font-bold">전략에서 실행까지 연결합니다</h2>
+            <h2 className="mt-3 text-2xl font-bold md:text-3xl">전략에서 실행까지 연결합니다</h2>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
             {services.map(({ title, description, icon: Icon, featured }) => (
@@ -180,7 +180,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-6 px-6 lg:grid-cols-2 lg:px-8">
           <article className="rounded-2xl border border-border bg-white p-8 shadow-card">
             <p className="text-sm font-bold tracking-[0.18em] text-teal">대표컨설턴트</p>
-            <h2 className="mt-3 text-3xl font-bold">김흥식(Harris Kim)</h2>
+            <h2 className="mt-3 text-2xl font-bold md:text-3xl">김흥식(Harris Kim)</h2>
             <p className="mt-1 font-semibold text-teal">Principal Consultant · MBA</p>
             <div className="my-6 h-px bg-border" />
             <h3 className="font-bold">주요 실적</h3>
@@ -210,7 +210,7 @@ export default function Home() {
         <div className="brand-wave" />
         <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-6 px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div>
-            <h2 className="text-3xl font-bold">AI 전략을 실행으로 연결할 준비가 되셨나요?</h2>
+            <h2 className="text-2xl font-bold md:text-3xl">AI 전략을 실행으로 연결할 준비가 되셨나요?</h2>
             <p className="mt-3 text-white/75">AI 전략부터 4-Week MVP 실행까지 AIPOS Consulting이 함께합니다.</p>
           </div>
           <a href="mailto:herriskim@gmail.com" className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-4 font-bold text-navy">이메일 문의 <ArrowRight size={18} /></a>
