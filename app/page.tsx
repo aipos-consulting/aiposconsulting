@@ -130,7 +130,7 @@ const copy = {
       ['実行可能なアプローチ', '現実的に実行可能な解決策を設計します。'],
       ['AI活用コンサルティング', 'AIで調査・分析・設計の生産性を高めます。'],
     ],
-    method: [['目標','目標設定'],['診断','現状診断'],['GAP','ギャップ分析'],['設計','戦略設計'],['優先順位','実行順序'],['MVP','最小実行製品'],['検証','成果検証'],['KPI','成果測定']],
+    method: [['目標','目標設定'],['진断','現状診断'],['GAP','ギャップ分析'],['設計','戦略設計'],['優先順位','実行順序'],['MVP','最小実行製品'],['検証','成果検証'],['KPI','成果測定']],
   },
   zh: {
     nav: ['首页', '服务', '4周MVP', 'AIPOS', '关于'],
@@ -176,9 +176,57 @@ const diffIcons = [Target, Network, Settings2, BarChart3]
 const stackIcons = [MessageSquareText, Code2, Database, GitBranch, Rocket]
 const stackBrands = ['ChatGPT', 'Codex', 'Supabase', 'GitHub', 'Vercel']
 
+const aiHumanCopy = {
+  ko: {
+    label: 'AIPOS AI-HUMAN DEVELOPMENT METHOD',
+    title: '개발이 끝나도 지식과 문서는 남습니다',
+    desc: '모든 개발 과정은 AIPOS Consulting이 개발한 AIPOS AI-HUMAN 개발방법론에 따라 수행됩니다. 사람의 판단과 AI의 실행을 결합하고, 요구사항·설계·변경·테스트·배포 기록을 프로젝트 자산으로 지속 축적하여 향후 다른 개발자가 투입되어도 빠르게 맥락을 이해하고 업그레이드할 수 있도록 합니다.',
+    docsTitle: '지속 가능한 인수인계 자산',
+    docsDesc: '요구사항, 설계 의사결정, 데이터 구조, 변경 이력, 테스트 결과, 배포 정보를 AIPOS 기준으로 관리하여 개발 종료 이후에도 유지보수와 고도화의 기준자료로 활용합니다.',
+    cicdTitle: 'CI/CD로 이어지는 지속 개발',
+    cicdDesc: '소스 변경은 GitHub를 중심으로 검증과 배포 흐름에 연결되며, 운영 피드백은 다시 요구사항으로 환류됩니다. 이를 통해 MVP가 일회성 결과물이 아니라 지속적으로 개선 가능한 제품으로 발전합니다.',
+    flow: ['요구사항 변경', 'Codex 개발', 'GitHub Push', 'CI 검증', 'Vercel 배포', '운영 피드백'],
+    handover: 'AIPOS 문서 + Version History → Handover → Next Developer Upgrade',
+  },
+  en: {
+    label: 'AIPOS AI-HUMAN DEVELOPMENT METHOD',
+    title: 'The code ships, but the knowledge stays',
+    desc: 'Every development activity follows the AIPOS AI-HUMAN development method created by AIPOS Consulting. Human judgment and AI execution work together while requirements, design decisions, changes, tests, and deployment records are continuously accumulated as project assets for future developers.',
+    docsTitle: 'Sustainable handover assets',
+    docsDesc: 'Requirements, architecture decisions, data structures, change history, test results, and deployment information are managed under AIPOS standards so maintenance and future upgrades can continue with context intact.',
+    cicdTitle: 'Continuous development through CI/CD',
+    cicdDesc: 'Source changes move from GitHub into validation and deployment, while production feedback returns to requirements. The MVP therefore evolves as a continuously improvable product rather than a one-time deliverable.',
+    flow: ['Requirement Change', 'Codex Development', 'GitHub Push', 'CI Validation', 'Vercel Deployment', 'User Feedback'],
+    handover: 'AIPOS Documents + Version History → Handover → Next Developer Upgrade',
+  },
+  ja: {
+    label: 'AIPOS AI-HUMAN DEVELOPMENT METHOD',
+    title: '開発が終わっても、知識と文書は残ります',
+    desc: 'すべての開発工程は、AIPOS Consultingが開発したAIPOS AI-HUMAN開発方法論に基づいて進めます。人の判断とAIの実行を組み合わせ、要件・設計・変更・テスト・デプロイ記録をプロジェクト資産として蓄積し、将来別の開発者が参加しても迅速に引き継げる状態を保ちます。',
+    docsTitle: '持続可能な引き継ぎ資産',
+    docsDesc: '要件、設計判断、データ構造、変更履歴、テスト結果、デプロイ情報をAIPOS基準で管理し、保守と高度化の基準資料として活用します。',
+    cicdTitle: 'CI/CDにつながる継続開発',
+    cicdDesc: 'ソース変更はGitHubを中心に検証・デプロイへ連携され、運用フィードバックは再び要件に戻ります。MVPを一回限りの成果物ではなく、継続的に改善できる製品へ発展させます。',
+    flow: ['要件変更', 'Codex開発', 'GitHub Push', 'CI検証', 'Vercelデプロイ', '運用フィードバック'],
+    handover: 'AIPOS文書 + Version History → Handover → Next Developer Upgrade',
+  },
+  zh: {
+    label: 'AIPOS AI-HUMAN DEVELOPMENT METHOD',
+    title: '开发完成后，知识与文档仍然保留',
+    desc: '所有开发过程均依据AIPOS Consulting研发的AIPOS AI-HUMAN开发方法论执行。通过结合人的判断与AI的执行，将需求、设计、变更、测试和部署记录持续沉淀为项目资产，使后续开发者能够快速理解背景并继续升级。',
+    docsTitle: '可持续的交接资产',
+    docsDesc: '按照AIPOS标准管理需求、设计决策、数据结构、变更记录、测试结果和部署信息，作为后续维护和升级的基础资料。',
+    cicdTitle: '通过CI/CD持续开发',
+    cicdDesc: '代码变更以GitHub为中心进入验证和部署流程，运营反馈再回流到需求。MVP不再是一次性交付，而是可以持续改进的产品。',
+    flow: ['需求变更', 'Codex开发', 'GitHub Push', 'CI验证', 'Vercel部署', '运营反馈'],
+    handover: 'AIPOS文档 + Version History → Handover → Next Developer Upgrade',
+  },
+} as const
+
 export default function Home() {
   const [lang, setLang] = useState<Lang>('ko')
   const t = copy[lang]
+  const a = aiHumanCopy[lang]
 
   return (
     <main className="min-h-screen bg-white text-navy [word-break:keep-all]">
@@ -269,6 +317,39 @@ export default function Home() {
                 </article>
               )
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-navy py-20 text-white md:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="text-sm font-bold tracking-[0.2em] text-teal">{a.label}</p>
+            <h2 className="mt-4 text-2xl font-bold leading-tight md:text-4xl">{a.title}</h2>
+            <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-white/75 md:text-lg">{a.desc}</p>
+          </div>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            <article className="rounded-3xl border border-white/10 bg-white/[0.06] p-7 md:p-8">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal text-white"><ClipboardCheck size={24} /></div>
+              <h3 className="mt-5 text-xl font-bold md:text-2xl">{a.docsTitle}</h3>
+              <p className="mt-4 leading-7 text-white/70">{a.docsDesc}</p>
+              <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.06] px-5 py-4 text-sm font-semibold leading-6 text-white/90">Requirements · Design Decision · Data Model · Change Log · Test Result · Deployment Record</div>
+            </article>
+
+            <article className="rounded-3xl border border-white/10 bg-white/[0.06] p-7 md:p-8">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal text-white"><GitBranch size={24} /></div>
+              <h3 className="mt-5 text-xl font-bold md:text-2xl">{a.cicdTitle}</h3>
+              <p className="mt-4 leading-7 text-white/70">{a.cicdDesc}</p>
+              <div className="mt-6 flex flex-wrap items-center gap-2">
+                {a.flow.map((item, index) => <div key={item} className="flex items-center gap-2"><span className="rounded-full border border-white/15 bg-white/[0.07] px-3 py-2 text-xs font-bold text-white/90">{item}</span>{index < a.flow.length - 1 && <ArrowRight size={14} className="text-teal" />}</div>)}
+              </div>
+            </article>
+          </div>
+
+          <div className="mt-8 rounded-3xl border border-teal/40 bg-teal/10 p-6 text-center md:p-8">
+            <div className="text-xs font-bold tracking-[0.18em] text-teal">HANDOVER & CONTINUOUS UPGRADE</div>
+            <div className="mt-3 text-lg font-bold leading-8 md:text-2xl">{a.handover}</div>
           </div>
         </div>
       </section>
