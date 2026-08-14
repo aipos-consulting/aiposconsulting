@@ -31,6 +31,23 @@ header a[href^='mailto:'] {
   display: none !important;
 }
 
+/* 모바일과 데스크톱 모두 동일한 다국어 선택기를 표시합니다. */
+@media (min-width: 768px) {
+  header [aria-label='Language selector'].md\:hidden {
+    display: flex !important;
+    margin-left: auto;
+    margin-right: 0.75rem;
+    padding: 0.2rem;
+    border: 1px solid #dbe4ec;
+    border-radius: 0.6rem;
+    background: #ffffff;
+  }
+
+  header [aria-label='Language selector'] button {
+    min-width: 2rem;
+  }
+}
+
 .brand-wave {
   position: absolute;
   right: 0;
