@@ -12,13 +12,46 @@
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
+  max-width: 100%;
+  overflow-x: clip;
   background: #ffffff;
   color: #072b5b;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* CJK translations can contain long runs without spaces. Keep natural words together
+   where possible, but allow an emergency wrap instead of expanding the viewport. */
+main.min-h-screen {
+  max-width: 100%;
+  overflow-x: clip;
+  overflow-wrap: anywhere;
+}
+
+main.min-h-screen section,
+main.min-h-screen article,
+main.min-h-screen figure,
+main.min-h-screen div,
+main.min-h-screen p,
+main.min-h-screen h1,
+main.min-h-screen h2,
+main.min-h-screen h3 {
+  min-width: 0;
+  max-width: 100%;
+}
+
+main.min-h-screen p,
+main.min-h-screen h1,
+main.min-h-screen h2,
+main.min-h-screen h3,
+main.min-h-screen li,
+main.min-h-screen span {
+  overflow-wrap: anywhere;
 }
 
 a {
