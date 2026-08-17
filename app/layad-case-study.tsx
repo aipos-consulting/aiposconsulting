@@ -78,18 +78,18 @@ export default function LayadCaseStudy({ lang }: { lang: Lang }) {
             <p className="mt-5 max-w-xl text-base leading-8 text-muted md:text-lg">{c.lead}</p>
             <div className="mt-8 flex flex-wrap gap-2">{c.tags.map((tag) => <span key={tag} className="rounded-full border border-border bg-surface px-3 py-2 text-xs font-bold text-navy">{tag}</span>)}</div>
 
-            <figure className="mt-9 overflow-hidden rounded-[28px] border border-[#d9cec2] bg-[#f5f1ed] shadow-[0_22px_55px_rgba(13,47,87,0.14)]">
-              <div className="relative flex min-h-[360px] flex-col items-center justify-center px-6 py-10 text-center sm:min-h-[410px] md:px-10">
-                <div className="absolute right-5 top-5 rounded-full border border-[#d9cec2] bg-white/70 px-3 py-1 text-[10px] font-semibold text-[#232323]">🌐 {lang === 'ko' ? '한국어' : lang === 'en' ? 'EN' : lang === 'ja' ? '日本語' : '中文'}</div>
-                <div className="text-[42px] font-black leading-none tracking-[-0.05em] text-[#222] sm:text-[56px]">Layad</div>
-                <div className="mt-1 text-[68px] font-black leading-[0.9] tracking-[-0.065em] text-[#222] sm:text-[86px]">16 Codes</div>
-                <div className="mt-7 text-base font-semibold text-[#222] sm:text-lg">{c.question}</div>
-                <div className="mt-10 w-full max-w-[420px] space-y-3">
-                  <div className="rounded-full bg-[#232323] px-5 py-4 text-sm font-bold text-white shadow-sm">{c.findCode}</div>
-                  <div className="rounded-full border border-[#b9aa9a] bg-[#e9e1d8] px-5 py-4 text-sm font-bold text-[#292929]">{c.selectCode}</div>
+            <figure className="mx-auto mt-9 w-[85%] overflow-hidden rounded-[24px] border border-[#d9cec2] bg-[#f5f1ed] shadow-[0_18px_45px_rgba(13,47,87,0.12)]">
+              <div className="relative flex min-h-[306px] flex-col items-center justify-center px-5 py-8 text-center sm:min-h-[349px] md:px-8">
+                <div className="absolute right-4 top-4 rounded-full border border-[#d9cec2] bg-white/70 px-2.5 py-1 text-[9px] font-semibold text-[#232323]">🌐 {lang === 'ko' ? '한국어' : lang === 'en' ? 'EN' : lang === 'ja' ? '日本語' : '中文'}</div>
+                <div className="text-[36px] font-black leading-none tracking-[-0.05em] text-[#222] sm:text-[48px]">Layad</div>
+                <div className="mt-1 text-[58px] font-black leading-[0.9] tracking-[-0.065em] text-[#222] sm:text-[73px]">16 Codes</div>
+                <div className="mt-6 text-sm font-semibold text-[#222] sm:text-base">{c.question}</div>
+                <div className="mt-8 w-[85%] max-w-[360px] space-y-2.5">
+                  <div className="rounded-full bg-[#232323] px-4 py-3.5 text-xs font-bold text-white shadow-sm sm:text-sm">{c.findCode}</div>
+                  <div className="rounded-full border border-[#b9aa9a] bg-[#e9e1d8] px-4 py-3.5 text-xs font-bold text-[#292929] sm:text-sm">{c.selectCode}</div>
                 </div>
               </div>
-              <figcaption className="border-t border-[#d9cec2] bg-white/70 px-5 py-4 text-sm font-bold text-navy">{c.imageCaption}</figcaption>
+              <figcaption className="border-t border-[#d9cec2] bg-white/70 px-4 py-3 text-xs font-bold text-navy sm:text-sm">{c.imageCaption}</figcaption>
             </figure>
           </div>
 
