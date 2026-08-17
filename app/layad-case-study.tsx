@@ -78,7 +78,7 @@ export default function LayadCaseStudy({ lang }: { lang: Lang }) {
             <p className="mt-5 max-w-xl text-base leading-8 text-muted md:text-lg">{c.lead}</p>
             <div className="mt-8 flex flex-wrap gap-2">{c.tags.map((tag) => <span key={tag} className="rounded-full border border-border bg-surface px-3 py-2 text-xs font-bold text-navy">{tag}</span>)}</div>
 
-            <figure className="mx-auto mt-9 w-[85%] overflow-hidden rounded-[24px] border border-[#d9cec2] bg-[#f5f1ed] shadow-[0_18px_45px_rgba(13,47,87,0.12)]">
+            <figure className="mx-auto mt-9 w-[85%] overflow-hidden rounded-[24px] border border-[#d9cec2] bg-[#f5f1ed] shadow-[0_18px_45px_rgba(13,47,87,0.12)] lg:-translate-x-[2mm] lg:translate-y-[5mm]">
               <div className="relative flex min-h-[306px] flex-col items-center justify-center px-5 py-8 text-center sm:min-h-[349px] md:px-8">
                 <div className="absolute right-4 top-4 rounded-full border border-[#d9cec2] bg-white/70 px-2.5 py-1 text-[9px] font-semibold text-[#232323]">🌐 {lang === 'ko' ? '한국어' : lang === 'en' ? 'EN' : lang === 'ja' ? '日本語' : '中文'}</div>
                 <div className="text-[36px] font-black leading-none tracking-[-0.05em] text-[#222] sm:text-[48px]">Layad</div>
