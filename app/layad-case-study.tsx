@@ -12,7 +12,10 @@ const content = {
     solutionTitle: 'AIPOS Solution', solution: '요구사항을 AI가 실행 가능한 구조로 정리하고, 코드·데이터베이스·형상관리·배포를 하나의 흐름으로 연결했습니다. 세부 진단 로직과 서비스 고유 노하우는 공개하지 않고 운영 구조와 개발 프로세스 중심으로 관리했습니다.',
     resultTitle: 'Outcome', result: 'MVP 기능 구현뿐 아니라 GitHub, Supabase, Vercel, Daily PM, AIPOS 기준문서를 연결해 지속 개발과 인수인계가 가능한 운영 기반을 구축했습니다.',
     gateTitle: 'AIPOS MVP Release Gate', gate: 'Repository · Branch · Approved Commit · Vercel Project · Supabase Project를 배포 전에 확인하고, Production 화면과 운영 데이터까지 검증한 뒤 완료 처리합니다.',
-    imageCaption: 'LAYAD MVP 실제 첫 화면',
+    imageCaption: 'LAYAD 16 Codes UI 사례',
+    question: '당신의 코드는 무엇인가요?',
+    findCode: '내 Code 찾기',
+    selectCode: '내 Code 직접 선택',
     process: ['Requirement', 'AI Development', 'Supabase', 'GitHub', 'Vercel', 'Production Validation'],
     tags: ['AI-Native MVP', 'Next.js', 'Supabase', 'GitHub', 'Vercel', 'CI/CD', 'AIPOS'],
   },
@@ -23,7 +26,10 @@ const content = {
     solutionTitle: 'AIPOS Solution', solution: 'Requirements were structured into executable work and connected across code, database, source control, and deployment. Proprietary assessment logic and service know-how remain private; the public case focuses on the delivery and operating process.',
     resultTitle: 'Outcome', result: 'The MVP was delivered with a maintainable operating foundation connecting GitHub, Supabase, Vercel, Daily PM, and AIPOS project documentation for continuous development and handover.',
     gateTitle: 'AIPOS MVP Release Gate', gate: 'Repository, branch, approved commit, Vercel project, and Supabase project are verified before release, followed by production UI and operating-data validation.',
-    imageCaption: 'Actual LAYAD MVP landing screen',
+    imageCaption: 'LAYAD 16 Codes UI Case',
+    question: 'What is your code?',
+    findCode: 'Find My Code',
+    selectCode: 'Select My Code',
     process: ['Requirement', 'AI Development', 'Supabase', 'GitHub', 'Vercel', 'Production Validation'],
     tags: ['AI-Native MVP', 'Next.js', 'Supabase', 'GitHub', 'Vercel', 'CI/CD', 'AIPOS'],
   },
@@ -34,7 +40,10 @@ const content = {
     solutionTitle: 'AIPOS Solution', solution: '要件をAIが実行可能な構造に整理し、コード、データベース、ソース管理、デプロイを一つの流れで接続しました。診断ロジックなど独自ノウハウは非公開とし、公開事例では開発・運用プロセスを中心に示します。',
     resultTitle: 'Outcome', result: 'MVP機能に加え、GitHub、Supabase、Vercel、Daily PM、AIPOS基準文書を連携し、継続開発と引き継ぎが可能な運用基盤を構築しました。',
     gateTitle: 'AIPOS MVP Release Gate', gate: 'Repository、Branch、Approved Commit、Vercel Project、Supabase Projectをリリース前に確認し、本番画面と運用データまで検証して完了とします。',
-    imageCaption: 'LAYAD MVP 実際の初期画面',
+    imageCaption: 'LAYAD 16 Codes UI 事例',
+    question: 'あなたのコードは何ですか？',
+    findCode: 'Codeを探す',
+    selectCode: 'Codeを直接選択',
     process: ['Requirement', 'AI Development', 'Supabase', 'GitHub', 'Vercel', 'Production Validation'],
     tags: ['AI-Native MVP', 'Next.js', 'Supabase', 'GitHub', 'Vercel', 'CI/CD', 'AIPOS'],
   },
@@ -45,7 +54,10 @@ const content = {
     solutionTitle: 'AIPOS Solution', solution: '将需求整理为AI可执行结构，并把代码、数据库、版本管理和部署连接成一个流程。诊断逻辑等核心业务诀窍不公开，公开案例重点展示交付与运营方法。',
     resultTitle: 'Outcome', result: '除MVP功能外，还连接GitHub、Supabase、Vercel、Daily PM和AIPOS项目文档，形成可持续开发和交接的运营基础。',
     gateTitle: 'AIPOS MVP Release Gate', gate: '发布前核对Repository、Branch、Approved Commit、Vercel Project和Supabase Project，并验证生产界面与运营数据后才视为完成。',
-    imageCaption: 'LAYAD MVP 实际首页',
+    imageCaption: 'LAYAD 16 Codes UI 案例',
+    question: '你的代码是什么？',
+    findCode: '查找我的 Code',
+    selectCode: '直接选择 Code',
     process: ['Requirement', 'AI Development', 'Supabase', 'GitHub', 'Vercel', 'Production Validation'],
     tags: ['AI-Native MVP', 'Next.js', 'Supabase', 'GitHub', 'Vercel', 'CI/CD', 'AIPOS'],
   },
@@ -59,18 +71,25 @@ export default function LayadCaseStudy({ lang }: { lang: Lang }) {
   return (
     <section className="bg-white py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.08fr] lg:items-start">
           <div>
             <p className="text-sm font-bold tracking-[0.2em] text-teal">{c.eyebrow}</p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-navy md:text-5xl">{c.title}</h2>
             <p className="mt-5 max-w-xl text-base leading-8 text-muted md:text-lg">{c.lead}</p>
             <div className="mt-8 flex flex-wrap gap-2">{c.tags.map((tag) => <span key={tag} className="rounded-full border border-border bg-surface px-3 py-2 text-xs font-bold text-navy">{tag}</span>)}</div>
 
-            <figure className="mt-8 overflow-hidden rounded-3xl border border-border bg-white shadow-card">
-              <div className="overflow-hidden bg-surface">
-                <img src="/layad-case-study-home.webp" alt={c.imageCaption} className="block h-auto w-full object-cover" />
+            <figure className="mt-9 overflow-hidden rounded-[28px] border border-[#d9cec2] bg-[#f5f1ed] shadow-[0_22px_55px_rgba(13,47,87,0.14)]">
+              <div className="relative flex min-h-[360px] flex-col items-center justify-center px-6 py-10 text-center sm:min-h-[410px] md:px-10">
+                <div className="absolute right-5 top-5 rounded-full border border-[#d9cec2] bg-white/70 px-3 py-1 text-[10px] font-semibold text-[#232323]">🌐 {lang === 'ko' ? '한국어' : lang === 'en' ? 'EN' : lang === 'ja' ? '日本語' : '中文'}</div>
+                <div className="text-[42px] font-black leading-none tracking-[-0.05em] text-[#222] sm:text-[56px]">Layad</div>
+                <div className="mt-1 text-[68px] font-black leading-[0.9] tracking-[-0.065em] text-[#222] sm:text-[86px]">16 Codes</div>
+                <div className="mt-7 text-base font-semibold text-[#222] sm:text-lg">{c.question}</div>
+                <div className="mt-10 w-full max-w-[420px] space-y-3">
+                  <div className="rounded-full bg-[#232323] px-5 py-4 text-sm font-bold text-white shadow-sm">{c.findCode}</div>
+                  <div className="rounded-full border border-[#b9aa9a] bg-[#e9e1d8] px-5 py-4 text-sm font-bold text-[#292929]">{c.selectCode}</div>
+                </div>
               </div>
-              <figcaption className="border-t border-border px-4 py-3 text-xs font-semibold text-muted">{c.imageCaption}</figcaption>
+              <figcaption className="border-t border-[#d9cec2] bg-white/70 px-5 py-4 text-sm font-bold text-navy">{c.imageCaption}</figcaption>
             </figure>
           </div>
 
