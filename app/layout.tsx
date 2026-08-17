@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import LayadCaseStudy from './layad-case-study'
 
 export const metadata: Metadata = {
   title: 'AIPOS Consulting | AI Strategy to Execution',
@@ -10,7 +11,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        {children}
+        <LayadCaseStudy />
+      </body>
     </html>
   )
 }
