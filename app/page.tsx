@@ -10,6 +10,33 @@ import LayadCaseStudy, { type Lang } from './layad-case-study'
 
 type Tab = 'home' | 'services' | 'mvp' | 'portfolio' | 'aipos' | 'about'
 
+const principleCopy = {
+  ko: {
+    eyebrow: 'AIPOS Principle No.1',
+    headline: 'AI는 뛰어남보다 지속가능해야 합니다.',
+    body: 'AIPOS Consulting은 고객에게 필요한 수준의 AI를 가장 낮고 예측 가능한 비용으로 지속 제공하는 것을 제1원칙으로 삼습니다.',
+    quote: '“가장 뛰어난 AI를 만드는 것이 아니라, 고객에게 필요한 수준의 AI를 가장 낮고 예측 가능한 비용으로 지속 제공한다.”',
+  },
+  en: {
+    eyebrow: 'AIPOS Principle No.1',
+    headline: 'AI must be sustainable, not just advanced.',
+    body: 'AIPOS Consulting makes it our No.1 principle to continuously provide the level of AI customers need at the lowest and most predictable cost.',
+    quote: '“We do not aim to build the most advanced AI. We continuously provide the AI our customers need at the lowest, most predictable cost.”',
+  },
+  ja: {
+    eyebrow: 'AIPOS Principle No.1',
+    headline: 'AIは「最も優れていること」よりも、持続可能であるべきです。',
+    body: 'AIPOS Consultingは、お客様に必要なレベルのAIを、最も低く予測可能なコストで継続的に提供することを第一原則とします。',
+    quote: '「最も優れたAIを作るのではなく、お客様に必要なレベルのAIを、最も低く予測可能なコストで継続的に提供する。」',
+  },
+  zh: {
+    eyebrow: 'AIPOS Principle No.1',
+    headline: 'AI不应只追求卓越，更必须具备可持续性。',
+    body: 'AIPOS Consulting 将以最低且可预测的成本，持续提供客户真正需要的AI能力，作为第一原则。',
+    quote: '“不是打造最卓越的AI，而是以最低且可预测的成本，持续提供客户所需要的AI能力。”',
+  },
+} as const
+
 const copy = {
   ko: {
     tabs: [['home','홈'],['services','서비스'],['mvp','4주 MVP'],['portfolio','Case Study'],['aipos','AIPOS'],['about','소개']] as const,
@@ -78,6 +105,7 @@ export default function Home() {
   const [lang, setLang] = useState<Lang>('ko')
   const [active, setActive] = useState<Tab>('home')
   const t = copy[lang]
+  const principle = principleCopy[lang]
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
@@ -101,7 +129,18 @@ export default function Home() {
       {active === 'home' && <>
         <section className="relative overflow-hidden bg-gradient-to-br from-white via-white to-surface">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
-            <div><p className="mb-5 text-sm font-bold tracking-[0.18em] text-teal">AIPOS CONSULTING</p><h1 className="max-w-3xl text-3xl font-bold leading-[1.25] tracking-tight sm:text-4xl md:text-6xl">{t.heroTitle1}<br />{t.heroTitle2}</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-muted">{t.heroDesc}</p><div className="mt-8 flex flex-wrap gap-3"><button onClick={() => setActive('mvp')} className="inline-flex items-center gap-2 rounded-xl bg-navy px-6 py-3.5 font-semibold text-white">4-Week MVP <ArrowRight size={18} /></button><a href="mailto:herriskim@gmail.com" className="inline-flex items-center gap-2 rounded-xl border border-border bg-white px-6 py-3.5 font-semibold text-navy">{t.email}</a></div></div>
+            <div>
+              <p className="mb-5 text-sm font-bold tracking-[0.18em] text-teal">AIPOS CONSULTING</p>
+              <h1 className="max-w-3xl text-3xl font-bold leading-[1.25] tracking-tight sm:text-4xl md:text-6xl">{t.heroTitle1}<br />{t.heroTitle2}</h1>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">{t.heroDesc}</p>
+              <div className="mt-8 max-w-3xl rounded-3xl border border-teal/25 bg-white/85 p-5 shadow-sm sm:p-6">
+                <p className="text-xs font-extrabold tracking-[0.18em] text-teal">{principle.eyebrow}</p>
+                <h2 className="mt-3 text-2xl font-bold leading-snug tracking-tight sm:text-3xl">{principle.headline}</h2>
+                <p className="mt-3 text-sm leading-6 text-muted sm:text-base sm:leading-7">{principle.body}</p>
+                <blockquote className="mt-5 border-l-4 border-teal pl-4 text-base font-semibold leading-7 text-navy sm:text-lg">{principle.quote}</blockquote>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-3"><button onClick={() => setActive('mvp')} className="inline-flex items-center gap-2 rounded-xl bg-navy px-6 py-3.5 font-semibold text-white">4-Week MVP <ArrowRight size={18} /></button><a href="mailto:herriskim@gmail.com" className="inline-flex items-center gap-2 rounded-xl border border-border bg-white px-6 py-3.5 font-semibold text-navy">{t.email}</a></div>
+            </div>
             <div className="grid grid-cols-2 gap-4 rounded-[28px] border border-border bg-white/80 p-6 shadow-card">{t.cards.map((label,i) => { const I = [BarChart3,Settings2,Network,Gauge][i]; return <div key={label} className="flex min-h-[125px] flex-col justify-between rounded-2xl border border-border bg-white p-5 shadow-sm"><I className="text-teal" /><span className="text-sm font-bold">{label}</span></div> })}</div>
           </div>
         </section>
