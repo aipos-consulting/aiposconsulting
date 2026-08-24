@@ -83,7 +83,7 @@ header a[href^='mailto:'] {
 
 /* 홈페이지 하단 사업자 정보: 사업자등록증의 통상 공개 항목만 표시합니다. */
 footer::before {
-  content: '상호: 에이아이포스 (AIPOS Consulting)  ·  대표자: 김흥식  ·  사업자등록번호: 582-02-04083\A사업장 주소: 경기도 과천시 윗배랭이길 62, B동 302호 (문원동, 소라빌라트)';
+  content: '상호: 에이아이포스 (AIPOS Consulting)  ·  대표자: 김흥식  ·  사업자등록번호: 582-02-04083\A사업장 주소: 경기도 과천시 문원동';
   display: block;
   max-width: 80rem;
   margin: 0 auto;
