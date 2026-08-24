@@ -81,6 +81,27 @@ header a[href^='mailto:'] {
   }
 }
 
+/* 홈페이지 하단 사업자 정보: 사업자등록증의 통상 공개 항목만 표시합니다. */
+footer::before {
+  content: '상호: 에이아이포스 (AIPOS Consulting)  ·  대표자: 김흥식  ·  사업자등록번호: 582-02-04083\A사업장 주소: 경기도 과천시 윗배랭이길 62, B동 302호 (문원동, 소라빌라트)';
+  display: block;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.78rem;
+  line-height: 1.7;
+  white-space: pre-line;
+  word-break: keep-all;
+}
+
+@media (min-width: 1024px) {
+  footer::before {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
 .brand-wave {
   position: absolute;
   right: 0;
