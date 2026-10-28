@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useMemo, useState } from 'react'
+import PriceHistory from './price-history'
 import { ArrowLeft, BarChart3, LockKeyhole, LogOut, RotateCcw, Save, SlidersHorizontal } from 'lucide-react'
 
 type Factor={name:string;score:number;weight:number}
@@ -60,6 +61,7 @@ export default function InvestmentWorkbench({adminEmail}:{adminEmail:string}){
       </div>
       <div className="rounded-xl border border-[#CDE8EE] bg-[#EAF6F8] px-5 py-3 text-sm text-[#236470]">미리보기 모델입니다. 산업 점수와 노출도는 초기 가정이며, 공시로 검증되지 않은 재무점수는 비워두었습니다. {message}</div>
       <div className="grid gap-4 md:grid-cols-4">{ranked.map((r,i)=><button key={r.name} onClick={()=>{setSelected(i);setTab('evaluation')}} className="rounded-xl border border-border bg-white p-5 text-left shadow-card transition hover:border-teal"><div className="text-sm font-bold">{r.name}</div><div className="mt-3 text-xs text-muted">가정 기반 산업전망 점수</div><div className="mt-1 text-3xl font-bold">{r.industry.toFixed(1)}<span className="ml-1 text-sm text-muted">/100</span></div><div className="mt-3 border-t pt-3 text-sm text-muted">종합점수: <span className="font-semibold text-navy">{r.total===null?'검증 전':r.total.toFixed(1)}</span></div></button>)}</div>
+      <PriceHistory />
       <div className="overflow-hidden rounded-xl border border-border bg-white shadow-card">
         <div className="flex flex-wrap gap-1 border-b border-border bg-[#F9FBFD] p-3">{([['factors','산업전망 가중치'],['exposure','기업별 노출도'],['evaluation','기업 평가·점수']] as const).map(([key,label])=><button key={key} onClick={()=>setTab(key)} className={'rounded-lg px-4 py-2 text-sm font-semibold '+(tab===key?'bg-navy text-white':'text-muted hover:bg-white')}>{label}</button>)}</div>
         <div className="p-5 md:p-7">
