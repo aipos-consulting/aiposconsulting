@@ -23,7 +23,7 @@ function parseCSV(raw:string):Point[]{
   const volume=vi>=0?Number(fields[vi]):undefined
   map.set(iso,{date:iso,close:v,volume:Number.isFinite(volume)?volume:undefined})
  }
- return [...map.values()].sort((a,b)=>a.date.localeCompare(b.date)).slice(-600)
+ return Array.from(map.values()).sort((a,b)=>a.date.localeCompare(b.date)).slice(-600)
 }
 export default function PriceHistory(){
  const [series,setSeries]=useState<Record<string,Point[]>>({})
