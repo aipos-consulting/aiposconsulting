@@ -33,12 +33,15 @@ export default function PriceHistory(){
  const [msg,setMsg]=useState('')
  const [pending,setPending]=useState(false)
  const [asOf,setAsOf]=useState('')
+ const [expectedDate,setExpectedDate]=useState('')
+ const [fetchedAt,setFetchedAt]=useState('')
+ const [stale,setStale]=useState(false)
  useEffect(()=>{
    let cancelled=false
-   setPending(true);setMsg('')
+   setPending(true);setMsg('');setAsOf('');setExpectedDate('');setFetchedAt('');setStale(false)
    fetch('/investment/api/prices?code='+active,{credentials:'same-origin',cache:'no-store'})
     .then(async r=>{const d=await r.json();if(!r.ok)throw new Error(d.error||'조회 실패');return d})
-    .then(d=>{if(!cancelled){setSeries(old=>({...old,[active]:d.rows}));setAsOf(d.asOf)}})
+    .then(d=>{if(!cancelled){setSeries(old=>({...old,[active]:d.rows}));setAsOf(d.asOf);setExpectedDate(d.expectedDate);setFetchedAt(d.fetchedAt);setStale(Boolean(d.stale))}})
     .catch(e=>{if(!cancelled)setMsg(e instanceof Error?e.message:'조회 실패')})
     .finally(()=>{if(!cancelled)setPending(false)})
    return ()=>{cancelled=true}
@@ -54,8 +57,9 @@ export default function PriceHistory(){
  <div className="flex flex-wrap items-start justify-between gap-4"><div><p className="text-xs font-semibold tracking-wider text-teal">PRICE HISTORY</p><h3 className="mt-1 text-xl font-bold">종목별 주가 추이</h3><p className="mt-1 text-xs text-muted">자동 조회 · 거래일 확정 종가 · 실시간 시세 아님</p></div><button type="button" onClick={()=>{setSeries(old=>({...old,[active]:[]}));setRefresh(x=>x+1)}} className="rounded-lg border border-border bg-white px-4 py-2 text-sm text-muted" disabled={pending}>{pending?'조회 중…':'자동 갱신'}</button></div>
  <div className="mt-5 flex flex-wrap gap-2">{symbols.map(s=><button key={s.ticker} onClick={()=>{setActive(s.ticker);setMsg('')}} className={'rounded-lg px-4 py-2 text-sm '+(active===s.ticker?'bg-navy font-bold text-white':'border border-border bg-surface text-navy')}>{s.name}</button>)}</div>
  <div className="mt-5 flex flex-wrap items-end justify-between gap-2"><div><p className="text-xs text-muted">{symbols.find(x=>x.ticker===active)?.name} · {active} · 최신 종가</p><p className="mt-1 text-3xl font-bold">{last?last.close.toLocaleString('ko-KR')+'원':'데이터 없음'}</p>{last&&<p className="mt-1 text-xs text-muted">{last.date} 기준 · 확정 종가 · 지연 제공 {change!==null?'· 전 거래일 대비 '+change.toFixed(2)+'%':''}</p>}</div><div className="flex gap-1">{(['1M','3M','6M','1Y','2Y'] as Range[]).map(x=><button key={x} onClick={()=>setRange(x)} className={'rounded-md px-3 py-2 text-xs '+(range===x?'bg-teal font-bold text-white':'bg-surface text-muted')}>{x}</button>)}</div></div>
+ {stale&&!pending&&<div role="status" className="mt-4 rounded-lg border border-amber-300 bg-amber-50 p-4 text-sm leading-6 text-amber-900"><strong>시세 갱신 지연</strong> · 공급원이 {asOf} 종가까지만 제공하고 있습니다. 최신 확인 예상 거래일은 {expectedDate}입니다. 현재 표시 가격은 최신 현재가가 아닙니다.</div>}
  {shown.length>1?<div className="mt-4"><svg viewBox="0 0 720 200" role="img" aria-label="일별 종가 추이" className="w-full rounded-lg bg-surface"><path d={path} fill="none" stroke="#0797A5" strokeWidth="2.8" strokeLinejoin="round"/><text x="8" y="20" fontSize="12" fill="#526173">최고 {Math.round(max).toLocaleString('ko-KR')}</text><text x="8" y="193" fontSize="12" fill="#526173">최저 {Math.round(min).toLocaleString('ko-KR')}</text></svg><p className="mt-2 text-xs text-muted">{shown[0].date} ~ {last?.date} · {shown.length} 거래일</p></div>:<div className="mt-4 rounded-xl border border-dashed border-border bg-surface px-5 py-10 text-center text-sm text-muted">자동으로 과거 주가를 불러옵니다. 데이터가 제공되지 않으면 오류 메시지를 확인해 주세요.</div>}
- <div className="mt-4 rounded-lg bg-[#EAF6F8] p-3 text-xs leading-6 text-[#236470]">출처: 한국주식데이터(aikstockdata.com) · 원천: 금융위원회 공공데이터포털. 확정 종가(T+1), 상업적 재배포 금지 조건을 따르는 관리자 개인 분석용 Preview입니다. 시세 기준일: {asOf||'확인 중'} · Supabase 사용량 0.</div>
+ <div className="mt-4 rounded-lg bg-[#EAF6F8] p-3 text-xs leading-6 text-[#236470]">출처: 한국주식데이터(aikstockdata.com) · 원천: 금융위원회 공공데이터포털. 확정 종가(T+1), 상업적 재배포 금지 조건을 따르는 관리자 개인 분석용 Preview입니다. 시세 기준일: {asOf||'조회 중'} · 서버 확인: {fetchedAt?new Date(fetchedAt).toLocaleString('ko-KR',{timeZone:'Asia/Seoul'}):'조회 중'} · 공급원 캐시 최대 30분 · Supabase 사용량 0.</div>
  {msg&&<p role="status" className="mt-3 text-sm text-teal">{msg}</p>}
  </section>
 }
