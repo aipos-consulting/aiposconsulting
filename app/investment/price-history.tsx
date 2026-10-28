@@ -19,7 +19,7 @@ function parseCSV(raw:string):Point[]{
   const v=Number(fields[ci]?.replace(/,/g,''))
   if(!/^\d{4}-\d{1,2}-\d{1,2}$/.test(date||'')||!Number.isFinite(v)||v<=0)continue
   const iso=date.split('-').map((x,i)=>i===0?x:x.padStart(2,'0')).join('-')
-  if(new Date(iso).toISOString?.()==='')continue
+  if(Number.isNaN(Date.parse(iso)))continue
   const volume=vi>=0?Number(fields[vi]):undefined
   map.set(iso,{date:iso,close:v,volume:Number.isFinite(volume)?volume:undefined})
  }
@@ -37,13 +37,13 @@ export default function PriceHistory(){
  const p=parseCSV(await file.text());if(!p.length)throw new Error('유효한 일별 종가가 없습니다.')
  save({...series,[active]:p});setMsg(p.length+'개 거래일 데이터를 불러왔습니다. 브라우저에만 보관됩니다.')
  }catch(e){setMsg(e instanceof Error?e.message:'파일 읽기 실패')}}
- const points=series[active]||[],last=points.at(-1)
+ const points=series[active]||[],last=points.length ? points[points.length-1] : undefined
  const cutoff=new Date();if(last)cutoff.setTime(new Date(last.date+'T00:00:00').getTime()-ranges[range]*86400000)
  const shown=last?points.filter(p=>p.date>=cutoff.toISOString().slice(0,10)):[]
  const min=Math.min(...shown.map(p=>p.close)),max=Math.max(...shown.map(p=>p.close))
  const coords=shown.map((p,i)=>[(i/Math.max(1,shown.length-1))*720, 185-(p.close-min)/Math.max(1,max-min)*170])
  const path=coords.map(([x,y],i)=>(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)).join(' ')
- const previous=points.at(-2),change=previous&&last?(last.close/previous.close-1)*100:null
+ const previous=points.length>1 ? points[points.length-2] : undefined,change=previous&&last?(last.close/previous.close-1)*100:null
  return <section className="rounded-xl border border-border bg-white p-5 shadow-card md:p-7">
  <div className="flex flex-wrap items-start justify-between gap-4"><div><p className="text-xs font-semibold tracking-wider text-teal">PRICE HISTORY</p><h3 className="mt-1 text-xl font-bold">종목별 주가 추이</h3><p className="mt-1 text-xs text-muted">검증된 데이터만 표시 · 실시간 시세 아님</p></div>
  <label className="cursor-pointer rounded-lg bg-navy px-4 py-2 text-sm font-bold text-white">일봉 CSV 가져오기<input ref={input} type="file" accept=".csv,text/csv" className="hidden" onChange={e=>{const f=e.target.files?.[0];if(f)upload(f);e.target.value=''}}/></label></div>
